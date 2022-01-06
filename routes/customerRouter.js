@@ -5,10 +5,10 @@ const customerController = require('../controllers/customerController.js')
 const router = require('express').Router()
 
 // add a new customer to the table
-router.post('/add', customerController.addCustomer)
+router.post('/', customerController.addCustomer)
 
 // access all the customers in the table
-router.get('/all', customerController.getAllCustomers)
+router.get('/', customerController.getAllCustomers)
 
 // access one customer by id
 router.get('/:id', customerController.getOneCustomer)

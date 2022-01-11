@@ -20,7 +20,9 @@ const addCustomer = async (req, res) => {
 const getAllCustomers = async (req, res) => {
 
     // using the builtin 'findAll' function on Customer Model
-    let customers = await Customer.findAll({})
+    let customers = await Customer.findAll({
+        include: db.Bags
+    });
     res.status(200).send(customers)
 }
 
@@ -30,7 +32,7 @@ const getOneCustomer = async (req, res) => {
     let id = req.params.id
 
     // using the builtin 'findAll' function on Customer Model
-    let customers = await Customer.findOne({where: {id: id}})
+    let customers = await Customer.findOne({where: {id: id}, include: db.Bags})
     res.status(200).send(customers)
 }
 

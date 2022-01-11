@@ -11,6 +11,9 @@ app.use(express.json())
 const routers = require('./routes/customerRouter.js')
 app.use('/customers', routers)
 
+const bagrouter = require('./routes/bagRouter.js')
+app.use('/bags', bagrouter)
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

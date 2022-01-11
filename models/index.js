@@ -32,13 +32,17 @@ db.sequelize = sequelize
 
 // get the cusomters model - our table name will be cusomters as set in the following line
 db.Customers = require('./customerModel')(sequelize, DataTypes)
+db.Bags = require('./bagModel')(sequelize, DataTypes)
 
 // sync the db by running the model
 // force: false ensure that the table is not created again on every time the program runs
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     console.log('DB synced with sequelize')
 }).catch((error) => {
     console.log('Error syncing the DB to sequelize' + error)
 })
+
+db.Bags.belongsTo(db.Customers);
+db.Customers.hasMany(db.Bags);
 
 module.exports = db

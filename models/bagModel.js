@@ -7,22 +7,22 @@ module.exports = (sequelize, DataTypes) => {
     // Define a new model, representing a table in the database.
     // modelName is 'customer' (first argument of define function)
     // When synced, this will create a table name of "modelName" + "s", i.e. "customers"
-    const Customer = sequelize.define('customer', {
+    const Bag = sequelize.define('bag', {
         id: { // the id will be our primary key for accessing customer data
             type: DataTypes.INTEGER,
             autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
-        name: {
+        label: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false
-        }, 
+        customerId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        }
     })
 
-    return Customer
+    return Bag
 }

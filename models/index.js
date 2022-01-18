@@ -5,7 +5,7 @@ const dbConfig = require('../config/dbConfig')
 const { Sequelize, DataTypes } = require('sequelize')
 
 // construct the sequelize object using the constructor
-const sequelize; 
+let sequelize = null;
 
     if (process && process.env.DATABASE_URL) {
         sequelize = new Sequelize(process.env.DATABASE_URL, {

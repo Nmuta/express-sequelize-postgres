@@ -13,6 +13,7 @@ const addCustomer = async (req, res) => {
      // using the builtin 'create' function on Customer Model
      const customer = await Customer.create(input_data)
      
+     
      // send a 200 response with the created entry
      res.status(200).send(customer)
 }
